@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> DOM - Ejercicios </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body>
+ <!-- Main es una etiqueta semantica  indica que es el contenido principal de la página-->
+    <main class="container"><!--Deja de usar el ancho de la página y empieza a darle un espacio para parcecer centrada   -->
+      <h1 id="encabezado1"> DOM - Ejercicios </h1> <!-- atributo id, para poder identificarlo de manera única-->
+      <h2 id="encabezado2"> DOM - Ejercicios </h2> 
+      <em onclick="modifica();"> Cursiva </em>
+      <form>
+        <button type="submit" id="btnMostrar" class="btn btn-primary">Mostrar</button>
+      </form>
+      <!-- Inician listas -->
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+
+      <hr>
+
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>  <!--Con un archivo externo -->
+  </body>
+</html>
