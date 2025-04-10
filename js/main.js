@@ -27,6 +27,10 @@ let otroElemento = document.querySelector("ul>li");//primero que encuentra
 let otrosElementos = document.querySelectorAll("ul>li"); //todos los elementos
 
 
+let txtRFC = document.getElementById("txtRFC");
+let txtTelefono = document.getElementById("txtTelefono");
+let txtCURP = document.getElementById("txtCURP");
+
 console.log(otrosElementos);
 
 console.log("Otroelemento: ",otroElemento);
@@ -55,8 +59,74 @@ function modifica(){
 //     console.log(" botón btnModificar presionado");
 // }
 
-btnMostrar.addEventListener("click", handleEvent);
+//btnMostrar.addEventListener("click", handleEvent);
+
 btnMostrar.addEventListener("click", function (event){
     event.preventDefault();//no hagas lo que haces por defecto
-    console.log(" botón btnModificar presionado");
+    //console.log(" botón btnModificar presionado");
+    let element = document.createElement("li");
+    element.innerText = "Another item"; //<li>Another item </li>
+    element.classList.add("list-group-item");
+
+    let element2 = element.cloneNode(true);
+    //before: Inserta el elemento antes de la lista
+    // listas.item(0).before(element);
+    //prepend: Inserta el elemento al principio de la lista
+    // listas.item(0).prepend(element2);
+    //append: Inserta el elemento al final de la lista
+    // listas.item(0).append(element);
+    //after: Inserta el elemento después de la lista
+    // listas.item(0).after(element2);
+
+    //afterbegin: Inserta el elemento al principio de la lista
+    // listas.item(1).insertAdjacentElement("afterbegin", element);
+    //beforeend: Inserta el elemento al final de la lista
+    // listas.item(1).insertAdjacentElement("beforeend", element2);
+
+    listas.item(1).insertAdjacentHTML("beforebegin", 
+        ` <li class="list-group-item">Before Begin item</li>`);
+    
+    listas.item(1).insertAdjacentHTML("afterend", 
+        ` <li class="list-group-item">After End item</li>`);
+    
+    
+    listas.item(1).insertAdjacentHTML("afterbegin", 
+        ` <li class="list-group-item">After Begin item</li>`);
+        
+    listas.item(1).insertAdjacentHTML("beforeend", 
+        ` <li class="list-group-item">Before End item</li>`);
 });
+//Se ejecuta cuando termina de cargar todos los elementos de la página
+window.addEventListener("load",function(event){ //carga lo que tiene la página referenciada con el main
+    console.log("Se terminó de cargar la página");
+});//load
+
+function txtToUpper(event){
+    event.preventDefault();
+
+    //event.target.value =event.target.value.toUpperCase();
+    event.target.value = event.target.value.trim().toUpperCase();
+    //event.target.value = event.target.value.replace().toUpperCase();
+   // event.target.value =event.target.value.trim().toUpperCase();
+}//txtToUpper
+
+txtRFC.addEventListener("blur", txtToUpper); //txtRFC
+txtCURP.addEventListener("blur",txtToUpper); //txtCURP
+
+
+//blur -->cuando se sale del campo del RFC
+//txtRFC.addEventListener("blur", function(event){
+    //event.preventDefault();
+    //txtRFC.value = txtRFC.value.toUpperCase();//valor de lectura y escritura -- Valor que tiene lo convierta en Mayúsculas
+//});//txtRFC
+
+// txtCURP.addEventListener("blur", function(event){
+//     event.preventDefault();
+//     txtCURP.value = txtCURP.value.toUpperCase();
+// });//txtCURP
+
+txtTelefono.addEventListener("blur", function(event){
+    event.preventDefault();
+
+    txtTelefono.value = txtTelefono.value.trim().slice(0,10);
+})//txtTelefono
